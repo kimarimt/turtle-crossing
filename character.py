@@ -13,3 +13,14 @@ class Character(Turtle):
         self.goto(self.start_position)
         self.setheading(90)
         self.showturtle()
+
+    def advance(self):
+        self.forward(5)
+
+    def reaches_goal(self):
+        return self.ycor() > 270
+
+    def reset(self):
+        self.hideturtle()
+        self.goto(self.start_position)
+        self.showturtle()

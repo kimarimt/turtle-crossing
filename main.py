@@ -17,4 +17,15 @@ screen.tracer(True)
 
 
 if __name__ == '__main__':
-    screen.exitonclick()
+    game_is_on = True
+    screen.onkey(turtle.advance, 'w')
+    screen.listen()
+
+    while game_is_on:
+        screen.update()
+
+        if turtle.reaches_goal():
+            screen.tracer(False)
+            turtle.reset()
+            screen.tracer(True)
+        
