@@ -1,4 +1,5 @@
 import turtle
+from character import Character
 
 
 SCREEN_WIDTH = 500
@@ -10,14 +11,9 @@ screen.title('Turtle Crossing')
 screen.setup(SCREEN_WIDTH, SCREEN_HEIGHT)
 screen.clear()
 
-turtle = turtle.Turtle()
-turtle.hideturtle()
-turtle.penup()
-turtle.shape('turtle')
-turtle.color('green')
-turtle.goto(START_POSITION)
-turtle.setheading(90)
-turtle.showturtle()
+screen.tracer(False)
+turtle = Character()
+screen.tracer(True)
 
 
 if __name__ == '__main__':
