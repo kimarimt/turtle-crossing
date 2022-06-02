@@ -1,26 +1,26 @@
+from random import randint
 from turtle import Turtle
 
 
-class Character(Turtle):
-    start_position = (0, -225)
+class Car(Turtle):
+    speed = 5
 
     def __init__(self):
         super().__init__()
         self.hideturtle()
         self.penup()
-        self.shape('turtle')
+        self.shape('square')
+        self.shapesize(stretch_wid=1, stretch_len=2)
         self.color('green')
-        self.goto(self.start_position)
-        self.setheading(90)
+        self.goto(-270, 0)
         self.showturtle()
 
-    def advance(self):
+    def drive(self):
         self.forward(5)
 
-    def reaches_goal(self):
-        return self.ycor() > 270
-
     def reset_position(self):
+        ycor = randint(-220, 220)
         self.hideturtle()
-        self.goto(self.start_position)
+        self.goto(-270, ycor)
         self.showturtle()
+        
