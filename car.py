@@ -24,3 +24,7 @@ class Car(Turtle):
         self.hideturtle()
         self.goto(-270, ycor)
         self.showturtle()
+
+    
+    def hits(self, character):
+        return self.distance(character.position()) < 10

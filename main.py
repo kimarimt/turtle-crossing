@@ -45,6 +45,9 @@ if __name__ == '__main__':
             car.drive()
             screen.tracer(True)
 
+            if car.hits(character):
+                game_is_on = False
+
             if car.xcor() > 270:
                 screen.tracer(False)
                 car.reset_position()
@@ -54,3 +57,5 @@ if __name__ == '__main__':
             screen.tracer(False)
             character.reset_position()
             screen.tracer(True)
+
+    screen.exitonclick()
