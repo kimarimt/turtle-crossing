@@ -15,7 +15,7 @@ class Character(Turtle):
         self.showturtle()
 
     def advance(self):
-        self.forward(5)
+        self.forward(2.5)
 
     def reaches_goal(self):
         return self.ycor() > 270

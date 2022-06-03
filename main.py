@@ -2,11 +2,12 @@ import turtle
 import random
 from character import Character
 from car import Car
+from game_handler import GameHandler
 
 
 SCREEN_WIDTH = 500
 SCREEN_HEIGHT = 500
-NUMBER_OF_CARS = 10
+NUMBER_OF_CARS = 15
 START_POSITION = (0, -225)
 COLORS = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
 
@@ -25,26 +26,12 @@ def get_cars():
 
     return cars
 
-level = 1
 
 screen.tracer(False)
 character = Character()
 cars = get_cars()
-drawer = turtle.Turtle()
-drawer.hideturtle()
-drawer.penup()
-drawer.goto(-180, 215)
-drawer.write(f'Level: {level}', align='center', font=('Courier', 20, 'normal'))
+game_handler = GameHandler()
 screen.tracer(True)
-
-
-def update_game(cars):
-    global level
-    level += 1
-    drawer.clear()
-    drawer.write(f'Level: {level}', align='center', font=('Courier', 20, 'normal'))
-    for car in cars:
-        car.update_speed()
 
 
 if __name__ == '__main__':
@@ -71,7 +58,9 @@ if __name__ == '__main__':
         if character.reaches_goal():
             screen.tracer(False)
             character.reset_position()
-            update_game(cars)
+            game_handler.update_game(cars)
             screen.tracer(True)
 
+    screen.clear()
+    game_handler.end_game()
     screen.exitonclick()
