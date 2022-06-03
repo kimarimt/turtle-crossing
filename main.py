@@ -25,11 +25,26 @@ def get_cars():
 
     return cars
 
+level = 1
 
 screen.tracer(False)
 character = Character()
 cars = get_cars()
+drawer = turtle.Turtle()
+drawer.hideturtle()
+drawer.penup()
+drawer.goto(-180, 215)
+drawer.write(f'Level: {level}', align='center', font=('Courier', 20, 'normal'))
 screen.tracer(True)
+
+
+def update_game(cars):
+    global level
+    level += 1
+    drawer.clear()
+    drawer.write(f'Level: {level}', align='center', font=('Courier', 20, 'normal'))
+    for car in cars:
+        car.update_speed()
 
 
 if __name__ == '__main__':
@@ -56,6 +71,7 @@ if __name__ == '__main__':
         if character.reaches_goal():
             screen.tracer(False)
             character.reset_position()
+            update_game(cars)
             screen.tracer(True)
 
     screen.exitonclick()
